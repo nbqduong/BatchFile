@@ -1,0 +1,38 @@
+cls
+@ECHO OFF
+
+title Folder Sof
+
+if EXIST "HTG Locker" goto UNLOCK
+if NOT EXIST Sof goto MDLOCKER
+:CONFIRM
+
+echo Close it?
+set/p "cho=>"
+if %cho%==Y goto LOCK
+if %cho%==y goto LOCK
+if %cho%==n goto END
+if %cho%==N goto END
+echo Invalid choice.
+goto CONFIRM
+:LOCK
+ren Sof "HTG Locker"
+attrib +h +s "HTG Locker"
+echo Folder locked
+goto End
+:UNLOCK
+echo Clear carefully to have more space
+set/p "pass=>"
+if NOT %pass%== connect goto FAIL
+attrib -h -s "HTG Locker"
+ren "HTG Locker" Sof
+echo Folder Unlocked successfully
+goto End
+:FAIL
+echo Invalid password
+goto end
+:MDLOCKER
+md Sof
+echo Sof created successfully
+goto End
+:End

@@ -1,0 +1,14 @@
+:: This is setting for bath file.
+:: When complete, save this file with .bat extension in file name, Save as All Files type. 
+cls
+@ECHO OFF
+
+:: First, we set title for program
+title
+
+::Start a file
+start " " "D:\Instruct\battery-report.html"  
+
+
+:: Wait until responded
+pause
